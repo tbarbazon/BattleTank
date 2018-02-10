@@ -1,0 +1,23 @@
+Concept:
+Open World Tank Fighter
+
+
+Rules:
+	WASD moves tank
+	mouse moves gun on top
+	can go up most slopes (around 65o)
+	Point based system
+	Cap Flag\point gets more points then kills (5 to 1)
+	*maybe add some cool physics to change normal tank games.
+
+Atmosphere:
+	Needs to be fun. 
+	dont waste to much time/ resources on looks.
+	something like tribes ascend for map.
+	Tank needs creeks and movement sounds
+	Explosions and shooting sounds
+	background music
+
+	
+	
+
