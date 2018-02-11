@@ -3,12 +3,13 @@ Open World Tank Fighter
 
 
 Rules:
-	WASD moves tank
+	WS moves tank
+	AD has *cooldown*? does side barrel roll flip or might just need to shoot ground somehow??
 	mouse moves gun on top
 	can go up most slopes (around 65o)
 	Point based system
 	Cap Flag\point gets more points then kills (5 to 1)
-	*maybe add some cool physics to change normal tank games.
+	Tribes ascend like skiing mechanic
 
 Atmosphere:
 	Needs to be fun. 

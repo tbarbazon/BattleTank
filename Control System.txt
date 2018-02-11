@@ -1,0 +1,14 @@
+w,s normal;
+
+a,d do side flips (Barrel Rolls);
+
+free cam for the most part with the gun following with;
+###Test wether holding a key to control aim is better then just always follow###
+
+
+cant go to far up or to far down; 
+
+some kind of way to flip the tank mid air so that you can do cool downword\ upward shots;
+
+button to release "break" and allow sliding;
+
