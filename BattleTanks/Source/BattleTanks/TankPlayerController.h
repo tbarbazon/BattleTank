@@ -6,6 +6,8 @@
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Actor.h"
 #include "Public/Tank.h"
+#include "GameFramework/PlayerController.h"
+#include "Engine/World.h"
 
 #include "TankPlayerController.generated.h" //must be last include
 
@@ -24,11 +26,26 @@ public:
 
 	// start tank moving barrel so that a shot would hit where
 	// the crosshair intersects the world
-	void AimTowardsCrossHair();
+	
 
 private:
 	
 	ATank* GetControlledTank() const;
 	
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 	
+	void AimTowardsCrossHair();
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.5;//0.333333; //probably should change to .5 We'll see.
+
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000;
+
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& OutHitLocation) const;
 };
