@@ -107,4 +107,6 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 
 	UE_LOG(LogTemp, Warning, TEXT("Nothing Found"))
 	return false;
+
+	
 }
