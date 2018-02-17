@@ -4,10 +4,9 @@
 
 
 
-void UTankBarrel::Elevate(float DegreesPerSecond)
+void UTankBarrel::Elevate(float RelativeSpeed)
 {
-	FString DPSstring = FString::SanitizeFloat(DegreesPerSecond);
-	UE_LOG(LogTemp,Warning,TEXT(" DegreesPerSecond: %s"), *DPSstring)
+	UE_LOG(LogTemp,Warning,TEXT(" RelativeSpeed: %f"), RelativeSpeed)
 }
 
 

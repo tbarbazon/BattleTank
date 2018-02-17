@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Public/TankBarrel.h"
 #include "Public/TankAimingComponent.h"
+#include "Public/TankBarrel.h"
+
 
 
 // Sets default values for this component's properties
@@ -9,7 +10,7 @@ UTankAimingComponent::UTankAimingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = true; //TODO should this tick?
 
 	// ...
 }
@@ -37,22 +38,27 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float ProjectileSpeed)
 
 	
 	// Calculates  correct Launch velocity in order to hit the end point location with projectile speed
-	if (UGameplayStatics::SuggestProjectileVelocity(
-			this,
-			OutLaunchVelocity,
-			StartLocation,
-			OutHitLocation,
-			ProjectileSpeed,
-			ESuggestProjVelocityTraceOption::DoNotTrace
-			)	
-		)
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(
+		this,
+		OutLaunchVelocity,
+		StartLocation,
+		OutHitLocation,
+		ProjectileSpeed,
+		ESuggestProjVelocityTraceOption::DoNotTrace
+	);
+
+	if (bHaveAimSolution)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-		FString newstring = FString::SanitizeFloat(ProjectileSpeed);
-		auto OutTankName = GetOwner()->GetName();
-		UE_LOG(LogTemp, Warning, TEXT("%s is aiming at %s"), *OutTankName, *AimDirection.ToString())
+		MoveBarrelTowards(AimDirection);
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT(" Aim Solution Found: %f"), Time)
 	}
-	
+	else
+	{
+		auto Time = GetWorld()->GetTimeSeconds();
+		UE_LOG(LogTemp, Warning, TEXT("%f: No aim solution found"), Time)
+	}
 	
 	/*;
 	auto BarrelLocation = Barrel->GetComponentLocation().ToString();
