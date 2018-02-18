@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
-#include "Tank.h"
 #include "Classes/Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 #include "TankAIController.generated.h"
@@ -12,6 +11,8 @@
 /**
  * 
  */
+
+class ATank; // Forward Declaration
 UCLASS()
 class BATTLETANKS_API ATankAIController : public AAIController
 {
